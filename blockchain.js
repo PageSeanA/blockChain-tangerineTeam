@@ -11,6 +11,7 @@ class Blockchain {
     // genesis block a required block to create the blockchain.
     // this is the first block in the blockchain
     constructor(genesisBlock) {
+
         this.blocks = [];
 
         //2 [0, 2]
@@ -77,7 +78,7 @@ class Blockchain {
             block.nonce += 1; //increment nonce by 1 
 
             hash = sha256(block.key);
-            console.log(`hash: ${hash} \n`);
+            // console.log(`hash: ${hash} \n`);
         }
 
         return hash;
