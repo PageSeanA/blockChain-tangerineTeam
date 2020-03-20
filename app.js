@@ -29,11 +29,13 @@ app.get('/resolve', (req, res) => {
     // before any node mines, call the resove path
     // nodes is a collection with all of the nodes on the network
 
-    //1. loop throught nodes 
+    //1. loop through out nodes 
     //fetch to node.url/blockchain 
     // compare the length of the current blockchain length with the other nodes 
     // if the length is greater than the current node, then replace the blockchain 
     // node[0].url = "localhost:3001"
+
+    console.log(nodes);
     nodes.forEach(node => {
 
         fetch(node.url + '/blockchain')
@@ -108,7 +110,7 @@ app.get('/mine', (req, res) => {
     let block = blockchain.getNextBlock(transactions)
     blockchain.addBlock(block);
 
-    transaction = []
+    transactions = [];
 
     res.json(block);
 })
